@@ -276,7 +276,7 @@ var startQuiz = function(event) {
 var timerFlag=0;
 var generateQuiz=function(taskId) {
   if (taskId=='0'){
-    timeLeft = 15;
+    timeLeft = 20;
     deleteTask(0);
     var taskSelected = document.querySelector(".one-question[data-task-id='" + 100 + "']");
     taskSelected.remove();
