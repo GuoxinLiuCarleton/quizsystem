@@ -11,7 +11,7 @@
 }
 
 body {
-  background: #ededed;
+  background: white;
   color: var(--grey);
   margin: 0;
   padding: 0;
@@ -20,16 +20,46 @@ body {
   flex-direction: column;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+header{
+
+}
+
 .container {
   margin: auto;
-  width: 100%;
+  width: 200px;
   height: 100px;
-  text-align: right;
+  float: right;
+  font-size: 20px;
+}
+.end-text{
+
+}
+
+.highscore{
+  position:absolute;
+  
+  font-size: 40px;
+}
+.review {
+  color: purple;
+  margin: auto;
+  width: 300px;
+  height: 100px;
+  float: left;
+  font-size: 20px;
+  cursor:pointer;
 }
 
 
-.choice-list li{
+.choice-style li{
   list-style:none;
+  font-size: 20px;
+
+}
+.choice-style ul li:hover {
+  background: blue;
+  color: white;
+
 }
 
 p{
@@ -38,28 +68,21 @@ p{
 li {
   font-size: 1.6rem;
 }
+.result-style {
+  
+    color:grey;
+    border-top:1px solid;
 
-form {
-  display: flex;
-  align-items: flex-end;
-  flex-wrap: wrap;
+    padding-bottom: 20px;
+    text-align:center;
+    margin: 0 auto 35px auto;
+    width:100%;
 }
 
-form input {
-  outline: none;
-  border: none;
-  padding: 12px;
-  width: 100%;
-  font-size: 2.2rem;
-  border: 2px solid var(--grey);
-  border-radius: 12px;
+.one-question {
+  font-size: 50px;
+  font-weight:bold;
 }
-
-form .form-group {
-  margin: 10px 6px 10px 0;
-  flex: 1;
-}
-
 
 
 .page-title {
@@ -98,52 +121,21 @@ form .form-group {
 }
 
 .task-item {
-  color: var(--grey);
-  padding: 15px 15px;
-  border: 2px solid var(--grey);
-  background: var(--tertiary);
+  color: white;
+  padding: 15px 15px; 
+  /* border: 2px solid var(--grey); */
+  background: purple;
   border-radius: 12px;
   margin-bottom: 20px;
   cursor:pointer;
 }
 
-.task-name {
-  margin: 0;
-  font-size: 1.8rem;
-}
 
-.task-type {
-  color: var(--secondary);
-  font-size: 1.55rem;
-}
-.task-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin: 10px 0 5px 0;
-  justify-content: space-between;
-}
 
-.task-actions button,
-.task-actions select {
-  flex: 1;
-}
-
-.btn {
-  outline: none;
-  border: none;
-  display: inline-block;
-  padding: 10px 15px;
-  background: var(--primary);
-  font-size: 2.2rem;
-  border-radius: 12px;
-  position: relative;
-  top: -3px;
-  box-shadow: 0 3px var(--grey);
-}
 
 .btn:hover {
   box-shadow: 0 2px var(--grey);
+  background: blue;
   top: -2px;
 }
 .btn:active {
