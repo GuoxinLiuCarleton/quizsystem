@@ -13,7 +13,7 @@ var scoreDataObj = {
   time: "",
 }
 
-
+/*create a question,there are some options that are saved in an array*/
 var createQuestion =function(Qnumber){
   var QLibrary=["Coding Quiz Challenge!","Quiz1:correct answer is 1","Quiz2:correct answer is 2","Quiz3:correct answer is 3","Quiz4:correct answer is 4","Quiz5:correct answer is 1","All Done!","High Scores"];
   var question = document.querySelector("#question");
@@ -24,6 +24,7 @@ var createQuestion =function(Qnumber){
   question.appendChild(oneQuestion);
 }
 
+/*create choices from 1-4*/
 var createChoice=function (Cnumber){
   if (Cnumber==1){
     var oneChoice = document.createElement("li");
@@ -42,7 +43,7 @@ var createChoice=function (Cnumber){
     }
   }
 }
-
+/*give a feed back to users their answers are correct of incorrect*/
 var createResult =function (taskId) {
 
     if (taskId=="0"){
@@ -144,6 +145,7 @@ var createResult =function (taskId) {
     }
 }; 
 
+/*used for delete a choice*/
 var deleteTask = function(taskId)   {
   
   var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
@@ -151,7 +153,7 @@ var deleteTask = function(taskId)   {
 
   
 };
-
+/*end the quiz,and display users score and require initial inputs*/
 var quizEnd = function(){
   var resultDisplay = document.getElementById("result");
   resultDisplay.style.display="none";
@@ -186,7 +188,7 @@ var quizEnd = function(){
 }
 
 
-
+/*this is a timer, when the time=0 it end by itself*/
 function countdown(timerEl) {
   
 
@@ -232,6 +234,7 @@ function countdown(timerEl) {
   
 }
 
+//start the quiz by creating the first page
 createQuestion(0);
 createChoice(1);
 
@@ -241,14 +244,14 @@ createChoice(1);
   highScoretext.className = "highscore";
   highScoretext.setAttribute("data-task-id", 123);
   highScore .appendChild(highScoretext);
-
+//used for view the high score
 var highScoreJump=function(event){
   var highscoreId = event.target.getAttribute("data-task-id");
   if (highscoreId && Qcount=="1") {
     showHighscoreb(event);
   }
 }
-
+/*start the quiz, and show each question*/
 var startQuiz = function(event) {
    var taskId = event.target.getAttribute("data-task-id");
    console.log(taskId);
@@ -269,6 +272,7 @@ var startQuiz = function(event) {
   }
 
 };
+//generate each question and choices
 var timerFlag=0;
 var generateQuiz=function(taskId) {
   if (taskId=='0'){
@@ -324,6 +328,7 @@ var generateQuiz=function(taskId) {
 
 var savedScore=[];
 var idNumber=0;
+//save scores
 var saveScore = function() {
  
   savedScore.push(scoreDataObj);
@@ -331,7 +336,7 @@ var saveScore = function() {
   showHighscore();
 
 };
-
+/*display the high score*/
 var showHighscore =function (event){
   // var resultDisplay = document.getElementById("choice-list");
   // resultDisplay.style.display="none";
@@ -421,7 +426,7 @@ var showHighscoreb =function (event){
 }
 
 
-
+//load its high score
 var loadTasks = function() {
   tasks = localStorage.getItem("tasks");
 
@@ -443,6 +448,7 @@ var textChanges=function(){
 
 var resultDisplay = document.getElementById("result");
 resultDisplay.style.display="none";
+//changing colors for the choice bars,include moving in and moving out
 var inchangeColor = function (event){
   var taskIdb = event.target.getAttribute("data-task-id");
    console.log(taskIdb);
@@ -485,6 +491,7 @@ var outchangeColor = function (event){
    }else if (taskIdb==4){
     taskSelected = document.querySelector(".task-item[data-task-id='" + 4 + "']");
     taskSelected.style.background="purple";
+
    }
 }
 
