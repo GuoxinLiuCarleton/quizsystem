@@ -6,21 +6,12 @@ var score=0;
 var pageContentEl = document.querySelector("#choice-list");
 var timerEl = document.getElementById('countdown');
 
-
-
-
-
-var timeLeft = 100;
+var timeLeft = 50;
 var scoreDataObj = {
   id:"",
   name: "",
   time: "",
 }
-
-
-
-
-
 
 
 var createQuestion =function(Qnumber){
@@ -216,6 +207,24 @@ function countdown(timerEl) {
         // Use `clearInterval()` to stop the timer
         clearInterval(timeInterval);
         // Call the `displayMessage()` function
+        var taskSelected = document.querySelector(".one-question[data-task-id='" + 100 + "']");
+         taskSelected.remove();
+         taskSelected = document.querySelector(".task-item[data-task-id='" + 1 + "']");
+         taskSelected.remove();
+         taskSelected = document.querySelector(".task-item[data-task-id='" + 2 + "']");
+         taskSelected.remove();
+         taskSelected = document.querySelector(".task-item[data-task-id='" + 3 + "']");
+         taskSelected.remove();
+         taskSelected = document.querySelector(".task-item[data-task-id='" + 4 + "']");
+         taskSelected.remove();
+         var taskSelected = document.querySelector(".one-result[data-task-id='" + 200 + "']");
+         taskSelected.remove();
+         timerFlag=0;
+         createQuestion(6);
+          quizEnd();
+        
+
+        
        
       }
     }, 1000);
@@ -235,7 +244,7 @@ createChoice(1);
 
 var highScoreJump=function(event){
   var highscoreId = event.target.getAttribute("data-task-id");
-  if (highscoreId) {
+  if (highscoreId && Qcount=="1") {
     showHighscoreb(event);
   }
 }
@@ -246,6 +255,7 @@ var startQuiz = function(event) {
   if (taskId=="0"||taskId=="1"||taskId=="2"||taskId=="3"||taskId=="4"||taskId=="50"){
     generateQuiz(taskId);
   }else if (taskId=="66"){
+    showHighscoreCounter=0;
     var taskSelected = document.querySelector(".one-question[data-task-id='" + 100 + "']");
     taskSelected.remove();
     var taskSelected = document.querySelector(".end-text[data-task-id='" + 400 + "']");
@@ -256,16 +266,13 @@ var startQuiz = function(event) {
     createChoice(1);
     Qcount=1;
     score=0;
-    
-
-
   }
 
 };
 var timerFlag=0;
 var generateQuiz=function(taskId) {
   if (taskId=='0'){
-    timeLeft = 100;
+    timeLeft = 15;
     deleteTask(0);
     var taskSelected = document.querySelector(".one-question[data-task-id='" + 100 + "']");
     taskSelected.remove();
@@ -281,6 +288,7 @@ var generateQuiz=function(taskId) {
       countdown(timerEl);
       timerFlag=1;
     }
+    
     
 
   }else if (taskId=="1"||taskId=="2"||taskId=="3"||taskId=="4"){
@@ -310,6 +318,7 @@ var generateQuiz=function(taskId) {
     var firstNameInput = document.querySelector("#initial");
     scoreDataObj.name=firstNameInput.value.trim();
     saveScore();
+    
   }     
 }
 
@@ -453,6 +462,7 @@ var inchangeColor = function (event){
     taskSelected = document.querySelector(".task-item[data-task-id='" + 4 + "']");
     taskSelected.style.background="blue";
    }
+
 
 
 }
